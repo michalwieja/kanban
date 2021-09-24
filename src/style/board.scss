@@ -5,25 +5,17 @@
 }
 
 .picker {
-
-
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .task {
-  width: 50px;
+
   height: 50px;
+  border: 1px solid white;
+  padding: 10px 20px;
 
-  &.pink {
-    background-color: pink;
-  }
-
-  &.coral {
-    background-color: coral;
-  }
-
-  &.lightblue {
-    background-color: lightblue;
-  }
 }
 
 .drop {
@@ -35,5 +27,4 @@
   &.hover{
     background-color: #444;
   }
-
 }
