@@ -12,13 +12,13 @@ interface ITask {
 const Card: React.FC<ITask> = ({task}): JSX.Element => {
     const [{isDragging},drag] = useDrag(()=>({
         type:'task',
-        item:{id:task.id},
+        item:{id:task.id, color: task.color},
         collect: monitor => ({
             isDragging: !!monitor.isDragging()
         })
     }))
     return (
-        <div ref={drag} className={task.color} style={{ border: isDragging ? '1px solid pink': ''}}>{task.id}</div>
+        <div ref={drag} className={`task ${task.color}`} style={{ backgroundColor: isDragging ? 'red': ''}}>{task.id}</div>
     )
 }
 
