@@ -1,0 +1,20 @@
+.panel {
+  width: 300px;
+  height: 300px;
+  border: 1px solid white;
+  transition: .2s;
+  position: relative;
+
+  &.hover {
+    background-color: #444;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+  }
+}

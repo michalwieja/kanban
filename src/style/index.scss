@@ -3,7 +3,9 @@
 @import "footer";
 @import "board";
 @import "addTask";
-*{
+@import "dropPanel";
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,14 +14,13 @@
   font-weight: 400;
 }
 
-.app{
+.app {
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #333;
-
 }
 
-.padding-x{
+.padding-x {
   padding: 0 300px;
 }
