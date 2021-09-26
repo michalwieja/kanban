@@ -17,10 +17,14 @@ const DropPanel: React.FC<{ title: string }> = ({title}) => {
         })
     }))
 
+
     const dropTask = (item: IDropElement) => {
+
         setTask(task => [...task, item])
         setTaskList((taskList: IDropElement[]) => taskList.filter(task => task.id !== item.id))
+
     }
+
 
     return (
         <div className={`panel ${isOver && "hover"}`} ref={drop}>

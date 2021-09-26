@@ -13,6 +13,7 @@ const AddTask: React.FC = () => {
     }
     const handleAdd = () => {
         setTaskList([...taskList, task])
+        setTask({id: null, name: ''})
     }
 
     return (
@@ -25,7 +26,7 @@ const AddTask: React.FC = () => {
                 value={task?.name}
                 onChange={handleChange}
             />
-            <button onClick={handleAdd} className="addTask__btn">
+            <button disabled={!task || task.name?.length===0} onClick={handleAdd} className="addTask__btn">
                 add
             </button>
         </div>

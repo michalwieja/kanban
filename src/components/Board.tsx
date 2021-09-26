@@ -5,7 +5,7 @@ import {TaskContext} from "../context/TaskContext";
 import DropPanel from "./DropPanel";
 
 export interface IDropElement {
-    id: number | string,
+    id: string | null,
     name: string
 }
 
