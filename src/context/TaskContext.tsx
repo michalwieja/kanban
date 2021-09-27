@@ -7,9 +7,9 @@ export const TaskContext = createContext<any>([[], () => null])
 export const TaskProvider = (props: any) => {
 
     const [taskList, setTaskList] = useState<IDropElement[]>([
-        {id: uuidv4(), name: 'apple'},
-        {id: uuidv4(), name: 'lightblue'},
-        {id: uuidv4(), name: 'coral'}
+        {id: uuidv4(), name: 'apple', status: 'open'},
+        {id: uuidv4(), name: 'lightblue', status:'closed'},
+        {id: uuidv4(), name: 'coral', status: 'open'}
     ]);
 
     return (

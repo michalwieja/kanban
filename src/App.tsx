@@ -11,9 +11,9 @@ const App = (): JSX.Element => {
         <TaskProvider>
             <DndProvider backend={HTML5Backend}>
                 <div className="app">
-                    <Header/>
+                    {/*<Header/>*/}
                     <Board/>
-                    <Footer/>
+                    {/*<Footer/>*/}
                 </div>
             </DndProvider>
         </TaskProvider>

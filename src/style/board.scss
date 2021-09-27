@@ -1,6 +1,7 @@
 .board {
   flex: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 
   .picker {

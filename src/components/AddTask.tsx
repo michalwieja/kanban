@@ -9,11 +9,11 @@ const AddTask: React.FC = () => {
     const [task, setTask] = useState<IDropElement>()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setTask({id: uuidv4(), name: e.target.value})
+        setTask({id: uuidv4(), name: e.target.value, status:'open'})
     }
     const handleAdd = () => {
         setTaskList([...taskList, task])
-        setTask({id: null, name: ''})
+        setTask({id: null, name: '', status: 'open'})
     }
 
     return (

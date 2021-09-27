@@ -10,7 +10,7 @@ interface ITask {
 const Task: React.FC<ITask> = ({task}): JSX.Element => {
     const [{isDragging}, drag] = useDrag(() => ({
         type: 'task',
-        item: {id: task.id, name: task.name},
+        item: task,
         collect: monitor => ({
             isDragging: !!monitor.isDragging()
         })
@@ -24,7 +24,7 @@ const Task: React.FC<ITask> = ({task}): JSX.Element => {
         <div
             ref={drag}
             className="task"
-            style={{display: isDragging ? 'none' : ''}}
+            style={{opacity: isDragging ? 0 : 1}}
         >
             {task.name}
             <button className="task__btn" onClick={handleRemove}>x</button>

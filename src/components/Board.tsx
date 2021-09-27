@@ -1,25 +1,25 @@
-import React, { useContext} from 'react';
+import React from 'react';
 import AddTask from "./AddTask";
-import Task from "./Task";
-import {TaskContext} from "../context/TaskContext";
 import DropPanel from "./DropPanel";
 
 export interface IDropElement {
     id: string | null,
-    name: string
+    name: string,
+    status: string
 }
 
-const Board: React.FC = (): JSX.Element => {
+enum title {
+    open = 1,
+    inProgress = 2,
+    closed = 3
+}
 
-    const [taskList, setTaskList] = useContext(TaskContext)
+
+const Board: React.FC = (): JSX.Element => {
 
     return (<>
             <AddTask/>
             <div className="board padding-x">
-                <div className="picker">
-                    {taskList.map((task: IDropElement) => (<Task key={task.id} task={task}/>))}
-                </div>
-
                 <DropPanel title={'open'}/>
                 <DropPanel title={'in progress'}/>
                 <DropPanel title={'closed'}/>

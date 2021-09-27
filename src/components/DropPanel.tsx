@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import Task from "./Task";
 import {IDropElement} from "./Board";
 import {useDrop} from "react-dnd";
@@ -7,7 +7,6 @@ import {TaskContext} from "../context/TaskContext";
 const DropPanel: React.FC<{ title: string }> = ({title}) => {
     const [taskList, setTaskList] = useContext(TaskContext)
 
-    const [task, setTask] = useState<IDropElement[]>([]);
 
     const [{isOver}, drop] = useDrop(() => ({
         accept: "task",
@@ -17,19 +16,23 @@ const DropPanel: React.FC<{ title: string }> = ({title}) => {
         })
     }))
 
-
     const dropTask = (item: IDropElement) => {
 
-        setTask(task => [...task, item])
-        setTaskList((taskList: IDropElement[]) => taskList.filter(task => task.id !== item.id))
+        setTaskList((prev: IDropElement[]) => prev.map((task: IDropElement) => {
+            if (task.id === item.id) {
+                return {...task, status: title}
+            }
+            return task
+        }))
 
     }
 
+    const filteredTask = taskList.filter((el: IDropElement) => el.status === title)
 
     return (
         <div className={`panel ${isOver && "hover"}`} ref={drop}>
             <div className="panel__title">{title}</div>
-            {task.map(el => (<Task key={el.id} task={el}/>))}
+            {filteredTask.map((el: IDropElement) => (<Task key={el.id} task={el}/>))}
         </div>
     )
 }
